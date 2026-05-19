@@ -132,8 +132,8 @@ cachePackages = ["cloud.google.com/go/compute/metadata", "dario.cat/mergo", "git
     version = "v3.17.0"
     hash = "sha256-b9dCq5GN5ac64UG23Rijv1qcmUZNcxb8DJQycAa96EQ="
   [mod."github.com/crossplane/crossplane-runtime/v2"]
-    version = "v2.3.0-rc.0.0.20260416145853-f43d88270996"
-    hash = "sha256-CsYEM4KYGLjD2LVmmoCbMAgPKfd4+DNAycb5lb7NtBA="
+    version = "v2.4.0-rc.0"
+    hash = "sha256-vNI+uJhxTTkuSLY0dzl7qgTKkm/vsXfJ3PYuHdJClJs="
   [mod."github.com/cyberphone/json-canonicalization"]
     version = "v0.0.0-20241213102144-19d51d7fe467"
     hash = "sha256-eqH3UKAZ9eOlZjYdN7nWuJ1hFm2JAP1PVbJInQk6OLw="

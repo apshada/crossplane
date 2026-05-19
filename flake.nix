@@ -118,6 +118,7 @@
               imagePlatforms
               ;
           };
+          inherit (pkgs) earthly;
         }
       );
 

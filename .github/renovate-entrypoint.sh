@@ -2,13 +2,7 @@
 
 set -e
 
-# Install Earthly (for release branches)
-echo "Installing Earthly..."
-curl -fsSLo /usr/local/bin/earthly https://github.com/earthly/earthly/releases/latest/download/earthly-linux-amd64
-chmod +x /usr/local/bin/earthly
-/usr/local/bin/earthly bootstrap
-
-# Install Nix (for main branch)
+# Install Nix.
 echo "Installing Nix..."
 apt-get update && apt-get install -y nix-bin
 
@@ -31,5 +25,14 @@ extra-trusted-public-keys = crossplane.cachix.org-1:NJluVUN9TX0rY/zAxHYaT19Y5ik4
 EOF
 
 echo "Nix $(nix --version) installed successfully"
+
+# Install Earthly (for release branches) from the repository flake on main,
+# pinned by main's flake.lock. The flake is referenced by URL because this
+# entrypoint runs in the Renovate container before the target repo is checked
+# out, so the working directory does not yet contain a flake.nix.
+echo "Installing Earthly..."
+nix profile install github:crossplane/crossplane#earthly
+export PATH="$HOME/.nix-profile/bin:$PATH"
+earthly bootstrap
 
 renovate
